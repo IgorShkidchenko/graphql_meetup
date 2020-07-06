@@ -10,8 +10,10 @@ module Mutations
       argument :input, Types::Inputs::UserMovieIdInput, required: true
 
       def resolve(input:)
-        opts = { params: input.to_h.merge(user: current_user) }
-        match_operation ::User::Operation::AddFavoriteMovie.call(opts)
+        match_operation ::User::Operation::AddFavoriteMovie.call(
+          current_user: current_user,
+          params: input.to_h
+        )
       end
     end
   end

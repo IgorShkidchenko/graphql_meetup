@@ -17,7 +17,6 @@ module Types
     field :original_language, String, null: true, description: I18n.t("#{I18N_PATH}.fields.original_language")
     field :is_favorite, Boolean, null: false, description: I18n.t("#{I18N_PATH}.fields.is_favorite")
     field :is_watchlist, Boolean, null: false, description: I18n.t("#{I18N_PATH}.fields.is_watchlist")
-    field :removed_movie_id, String, null: false, description: I18n.t("#{I18N_PATH}.fields.removed_movie_id")
 
     field :images,
           [Types::MovieImageType],
@@ -57,10 +56,6 @@ module Types
 
     def is_watchlist
       WatchlistMovie.exists?(movie: object, user_account: context[:current_user])
-    end
-
-    def removed_movie_id
-      object.id.to_s
     end
   end
 end

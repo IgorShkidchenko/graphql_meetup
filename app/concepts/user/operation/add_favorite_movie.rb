@@ -3,11 +3,14 @@
 module User::Operation
   class AddFavoriteMovie < Trailblazer::Operation
     step :add_movie_to_favorites
+    step :set_result
 
-    def add_movie_to_favorites(ctx, params:, **)
-      opts = { user_account: params[:user], movie_id: params[:movie_id]}
-      favorite_movie = FavoriteMovie.create(opts)
-      ctx['result'] = favorite_movie.movie
+    def add_movie_to_favorites(ctx, params:, current_user:, **)
+      ctx[:model] = FavoriteMovie.create({ user_account: current_user, movie_id: params[:movie_id] })
+    end
+
+    def set_result(ctx, model:, **)
+      ctx['result'] = model.movie
     end
   end
 end

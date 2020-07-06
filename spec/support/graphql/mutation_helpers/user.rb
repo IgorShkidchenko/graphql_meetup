@@ -64,7 +64,7 @@ module GraphQL
       %(
         mutation userRemoveFavoriteMovie($input: UserMovieIdInput!) {
           userRemoveFavoriteMovie(input: $input) {
-            removedMovieId
+            deletedItemId
           }
         }
       )
@@ -86,7 +86,7 @@ module GraphQL
       %(
         mutation userRemoveWatchlistMovie($input: UserMovieIdInput!) {
           userRemoveWatchlistMovie(input: $input) {
-            removedMovieId
+            deletedItemId
           }
         }
       )
@@ -110,7 +110,7 @@ module GraphQL
       %(
         mutation userRemoveListItem($input: ListMovieInput!) {
           userRemoveListItem(input: $input) {
-            removedMovieId
+            deletedItemId
           }
         }
       )
@@ -139,7 +139,7 @@ module GraphQL
       %(
         mutation userDeleteList($input: DeleteInput!) {
           userDeleteList(input: $input) {
-            deletedListId
+            deletedItemId
           }
         }
       )

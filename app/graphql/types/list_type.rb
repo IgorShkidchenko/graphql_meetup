@@ -9,11 +9,9 @@ module Types
     description I18n.t("#{I18N_PATH}.desc")
 
     field :name, String, null: false, description: I18n.t("#{I18N_PATH}.fields.name")
-    field :deleted_list_id, String, null: false, description: I18n.t("#{I18N_PATH}.fields.deleted_list_id")
-
     field :items,
           [Types::MovieType],
-          null: true,
+          null: false,
           description: I18n.t("#{I18N_PATH}.fields.items")
 
     def items
@@ -22,10 +20,6 @@ module Types
           loader.call(movie.list_id) { |memo| memo << movie.movie }
         end
       end
-    end
-
-    def deleted_list_id
-      object.id.to_s
     end
   end
 end

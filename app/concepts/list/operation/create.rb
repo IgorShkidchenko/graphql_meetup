@@ -5,12 +5,12 @@ module List::Operation
     step :create_list
     step :set_result
 
-    def create_list(ctx, params:, **)
-      ::List.create(name: params[:name], user_account: params[:user])
+    def create_list(ctx, params:, current_user:, **)
+      ::List.create(name: params[:name], user_account: current_user)
     end
 
-    def set_result(ctx, params:, **)
-      ctx['result'] = params[:user]
+    def set_result(ctx, current_user:, **)
+      ctx['result'] = current_user
     end
   end
 end

@@ -55,7 +55,6 @@ en:
           runtime: Movie's runtime in seconds
           is_favorite: Movie's favorite mark
           is_watchlist: Movie's watchlist mark
-          removed_movie_id: Removed movie's id
       image_type:
         desc: Image type
         fields:
@@ -66,4 +65,6 @@ en:
         fields:
           title: List's title
           items: List's items
-          deleted_list_id: Deleted list's id
+      delete_item_type:
+        desc: Delete item type
+        deleted_item_id: Deleted item's id
