@@ -7,6 +7,6 @@ module Types
     graphql_name 'DeleteItemType'
     description I18n.t("#{I18N_PATH}.desc")
 
-    field :deleted_item_id, String, null: false, description: I18n.t("#{I18N_PATH}.fields.deleted_item_id")
+    field :deleted_item_id, ID, null: false, description: I18n.t("#{I18N_PATH}.fields.deleted_item_id")
   end
 end
