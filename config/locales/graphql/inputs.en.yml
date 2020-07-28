@@ -15,3 +15,20 @@ en:
           args:
             email: User's account email
             password: User's account password
+        movie_id_input:
+          desc: Add or Remove movie from favorites or watchlist
+          args:
+            movie_id: Movie's id
+        list_movie_input:
+          desc: Add or Remove movie from list
+          args:
+            movie_id: Movie's id
+            list_id: List's id
+        delete_input:
+          desc: Delete object
+          args:
+            id: Object's id
+        create_list_input:
+          desc: Create list
+          args:
+            name: List's name

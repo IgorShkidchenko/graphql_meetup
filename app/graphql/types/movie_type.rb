@@ -15,6 +15,8 @@ module Types
     field :budget, Integer, null: true, description: I18n.t("#{I18N_PATH}.fields.budget")
     field :runtime, Integer, null: true, description: I18n.t("#{I18N_PATH}.fields.runtime")
     field :original_language, String, null: true, description: I18n.t("#{I18N_PATH}.fields.original_language")
+    field :is_favorite, Boolean, null: false, description: I18n.t("#{I18N_PATH}.fields.is_favorite")
+    field :is_watchlist, Boolean, null: false, description: I18n.t("#{I18N_PATH}.fields.is_watchlist")
 
     field :images,
           [Types::MovieImageType],
@@ -46,6 +48,14 @@ module Types
           loader.call(attachment.record_id, attachment)
         end
       end
+    end
+
+    def is_favorite
+      FavoriteMovie.exists?(movie: object, user_account: context[:current_user])
+    end
+
+    def is_watchlist
+      WatchlistMovie.exists?(movie: object, user_account: context[:current_user])
     end
   end
 end
